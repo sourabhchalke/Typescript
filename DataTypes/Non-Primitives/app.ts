@@ -42,3 +42,32 @@ class Car{
     // Methods,Functions and etc
 }
 let obj3=new Car();
+
+// Interface: Structure/type shape definition
+interface UserInter{
+    names:string;
+    email:string;
+    age:number
+}
+
+function fun(obj:UserInter){
+    console.log("Interface");
+    obj.age;
+}
+
+// Extending Interface
+interface User1{
+    name:string;
+    email:string;
+    age:number
+}
+interface User2 extends User1{
+    admin:string
+}
+
+function extenFun1(obj:User1){
+    // Only User1 interface properties are available
+}
+function extenFun(obj:User2){
+    // All interfaces properties available
+}

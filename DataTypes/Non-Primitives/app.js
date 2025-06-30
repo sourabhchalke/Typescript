@@ -35,3 +35,13 @@ function abcd() {
 class Car {
 }
 let obj3 = new Car();
+function fun(obj) {
+    console.log("Interface");
+    obj.age;
+}
+function extenFun1(obj) {
+    // Only User1 interface properties are available
+}
+function extenFun(obj) {
+    // All interfaces properties available
+}
