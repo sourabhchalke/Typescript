@@ -35,3 +35,15 @@ obj4.getName();
 // obj4.getAddress(); Only access within class
 
 
+// Protected = Accessible within the class and its subclasses, but not from outside the class hierarchy.
+class Student1{
+    protected age:number=20;
+}
+class Student2 extends Student1{
+    getAge(){
+        console.log("Protected Age :",this.age);//Now age will accessible here because of protected
+    }
+}
+let std1 = new Student2();
+std1.getAge();
+// console.log(age); //Not accessible outside current class and extended class
