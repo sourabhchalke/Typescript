@@ -19,3 +19,8 @@ function dp(address = "India") {
     return `Address is ${address}`;
 }
 console.log(dp("Mumbai"));
+// Rest Paramete : ... rest 
+function restPara(...arr) {
+    return arr.map((num) => num * 3);
+}
+console.log(restPara(1, 2, 3, 45));

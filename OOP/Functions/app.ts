@@ -22,3 +22,11 @@ function dp(address:string="India"):string{
 }
 console.log(dp("Mumbai"));
 
+// Rest Paramete : ... rest 
+function restPara(...arr: number[]): number[] {
+  return arr.map((num: number) => num * 3);
+}
+
+console.log(restPara(1, 2, 3, 45)); 
+
+
