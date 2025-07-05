@@ -24,3 +24,8 @@ function restPara(...arr) {
     return arr.map((num) => num * 3);
 }
 console.log(restPara(1, 2, 3, 45));
+function add(a, b) {
+    return b == undefined ? a + 2 : a + b;
+}
+console.log(add(2));
+console.log(add(2, 5));

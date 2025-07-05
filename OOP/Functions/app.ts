@@ -26,7 +26,15 @@ console.log(dp("Mumbai"));
 function restPara(...arr: number[]): number[] {
   return arr.map((num: number) => num * 3);
 }
-
 console.log(restPara(1, 2, 3, 45)); 
 
+// Function Overloading : Function Overloading in TypeScript allows you to define multiple function signatures for a single function. This is useful when a function behaves differently based on the types or number of arguments.
 
+function add(a:number):number;
+function add(a:number,b:number):number;
+
+function add(a:number,b?:number):number{
+    return b == undefined ? a+2 : a+b;
+}
+console.log(add(2));
+console.log(add(2,5));
