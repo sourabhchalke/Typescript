@@ -17,3 +17,12 @@ let requiredUser2 : Required<user2> = {
     address:"Mumbai"
 }
 console.log(requiredUser2);
+
+// 3. Readonly<T> : Makes all properties readonly.
+type user3 = {
+    name:"Dhoni",
+    age:43,
+    address:"Ranchi"
+}
+type readonlyUser3 = Readonly<user3> ;
+ // => { readonly name: string; readonly age: number }
