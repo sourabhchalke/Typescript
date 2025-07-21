@@ -5,3 +5,15 @@
  let partialUser:Partial<user> = {name:"Tiger"};
  console.log(partialUser.name);
 
+// 2. Required<T>: Makes all properties required.
+type user2 = {
+    name?:string,
+    age?:number,
+    address:string
+}
+let requiredUser2 : Required<user2> = {
+    name:"Sachin",
+    age:53,
+    address:"Mumbai"
+}
+console.log(requiredUser2);
