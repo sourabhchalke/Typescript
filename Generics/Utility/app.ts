@@ -26,3 +26,16 @@ type user3 = {
 }
 type readonlyUser3 = Readonly<user3> ;
  // => { readonly name: string; readonly age: number }
+
+//  4. Pick<T,K> : Creates a type by picking specific keys from another type.
+type job = {
+    role:string,
+    qualification:string,
+    address:string
+}
+let jobPick : Pick<job,"address" | "role"> = {
+    address:"Mumbai",
+    role:"Frontend Developer",
+    // qualification:"MSc", => Object literal may only specify known properties, and 'qualification' does not exist in type 'Pick<job, "address" | "role">'
+};
+console.log(jobPick.address);

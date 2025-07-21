@@ -8,3 +8,9 @@ let requiredUser2 = {
     address: "Mumbai"
 };
 console.log(requiredUser2);
+let jobPick = {
+    address: "Mumbai",
+    role: "Frontend Developer",
+    // qualification:"MSc", => Object literal may only specify known properties, and 'qualification' does not exist in type 'Pick<job, "address" | "role">'
+};
+console.log(jobPick.address);
