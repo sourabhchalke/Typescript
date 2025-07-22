@@ -67,4 +67,9 @@ let user:u1="name";
 let user2:u1="age";
 // let user3:u1="address" : Error - Type '"address"' is not assignable to type 'u1'
 
-
+// 8. NonNullable<T> : Removes null and undefined from a type.
+type password=string | null | number | undefined;
+type checkPassword = NonNullable<password>;
+let password1:checkPassword="peter";
+let password2:checkPassword=12234;
+// let password3:checkPassword=null; : Type 'null' is not assignable to type 'checkPassword'.

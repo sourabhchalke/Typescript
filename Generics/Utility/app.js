@@ -22,4 +22,6 @@ let employeeOmit = {
 let player = "Bowler"; // Correct
 let user = "name";
 let user2 = "age";
-// let user3:u1="address" : Error - Type '"address"' is not assignable to type 'u1'
+let password1 = "peter";
+let password2 = 12234;
+// let password3:checkPassword=null; : Type 'null' is not assignable to type 'checkPassword'.
