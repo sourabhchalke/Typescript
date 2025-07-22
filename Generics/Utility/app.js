@@ -14,3 +14,7 @@ let jobPick = {
     // qualification:"MSc", => Object literal may only specify known properties, and 'qualification' does not exist in type 'Pick<job, "address" | "role">'
 };
 console.log(jobPick.address);
+let employeeOmit = {
+    address: "Pune",
+    name: "Ajay Yadav",
+};

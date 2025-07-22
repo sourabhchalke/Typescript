@@ -39,3 +39,15 @@ let jobPick : Pick<job,"address" | "role"> = {
     // qualification:"MSc", => Object literal may only specify known properties, and 'qualification' does not exist in type 'Pick<job, "address" | "role">'
 };
 console.log(jobPick.address);
+
+// 5. Omit<T, K> :Creates a type by omitting specific keys from another type.
+type employee={
+    name:string,
+    address:string,
+    age:number
+}
+let employeeOmit : Omit<employee,"age">={
+    address:"Pune",
+    name:"Ajay Yadav",
+};
+
