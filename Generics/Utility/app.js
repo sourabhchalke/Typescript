@@ -18,3 +18,6 @@ let employeeOmit = {
     address: "Pune",
     name: "Ajay Yadav",
 };
+// This will only allow "Bowler" | "All-Rounder"
+let player = "Bowler"; // Correct
+// let player: ExcludePlayer = "Batsman"; //  Error: "Batsman" is not assignable

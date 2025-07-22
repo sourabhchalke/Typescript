@@ -51,3 +51,13 @@ let employeeOmit : Omit<employee,"age">={
     name:"Ajay Yadav",
 };
 
+// 6. Exclude<T, U> : Excludes types from a union.
+type Cricketer = "Batsman" | "Bowler" | "All-Rounder";
+type ExcludePlayer = Exclude<Cricketer,"Batsman">;
+
+// This will only allow "Bowler" | "All-Rounder"
+let player: ExcludePlayer = "Bowler"; // Correct
+
+// let player: ExcludePlayer = "Batsman"; //  Error: "Batsman" is not assignable
+
+
