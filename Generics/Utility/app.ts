@@ -60,4 +60,11 @@ let player: ExcludePlayer = "Bowler"; // Correct
 
 // let player: ExcludePlayer = "Batsman"; //  Error: "Batsman" is not assignable
 
+// 7. Extract<T, U> :Extracts types that are common to both unions.
+type user1="name" | "age" | "address";
+type u1=Extract<user1,"name"|"age">;
+let user:u1="name";
+let user2:u1="age";
+// let user3:u1="address" : Error - Type '"address"' is not assignable to type 'u1'
+
 

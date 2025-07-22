@@ -20,4 +20,6 @@ let employeeOmit = {
 };
 // This will only allow "Bowler" | "All-Rounder"
 let player = "Bowler"; // Correct
-// let player: ExcludePlayer = "Batsman"; //  Error: "Batsman" is not assignable
+let user = "name";
+let user2 = "age";
+// let user3:u1="address" : Error - Type '"address"' is not assignable to type 'u1'
