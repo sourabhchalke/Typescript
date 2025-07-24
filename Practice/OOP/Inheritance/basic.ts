@@ -70,13 +70,14 @@ teacher1.teacherMethod();
 
 //  Multiple Inheritance (Not Supported via Classes) : TypeScript does not support multiple class inheritance (like class A extends B, C), but you can implement multiple interfaces.
 
-interface A{
+interface D{
     car():void;
 }
-interface B{
+interface E{
     bike():void;
 }
-class C implements A,B{
+class C implements D,E{
+
     car():void{
         console.log("Car Properties");
     }

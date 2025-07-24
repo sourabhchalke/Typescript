@@ -63,3 +63,24 @@ console.log("Price : ", cr1.price());
 let bikes1 = new Bikes("RX-100", 150000);
 console.log("Bike Name :", bikes1.brand());
 console.log("Bike Price :", bikes1.price());
+// Create a class MathUtils with static method add() and a static property PI.
+class MathUtil {
+    // Static method:This method can called on the class, without creating instance.
+    static add(num1) {
+        let sum = MathUtil.PI * num1;
+        console.log(`Output : ${sum}`);
+        return sum;
+    }
+    // Non-static method:For accessing this method,we need to create instance.
+    display() {
+        console.log("Non-Static Method");
+    }
+}
+// Static property:This property belongs to class itself, and not object instance.
+MathUtil.PI = 3.1415;
+// let math1 = new MathUtil();
+// math1.add(6); Property 'add' does not exist on type 'MathUtil'
+MathUtil.add(8);
+// For accessing non-static method
+let mt1 = new MathUtil();
+mt1.display();

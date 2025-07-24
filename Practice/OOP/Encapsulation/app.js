@@ -61,3 +61,33 @@ console.log("Total Balance is :", us1.getBalance());
 us1.deposit(5000);
 us1.withdraw(2000);
 console.log("Total Balance is :", us1.getBalance());
+// Getter and Setter in TypeScript, which are used to control access to class properties — an essential part of encapsulation.
+// Term	Purpose:
+// getter:-Allows you to access a private property in a controlled way
+// setter:-Allows you to modify a private property with validation or logic
+// They help you encapsulate logic while still using property-like syntax.
+class Login {
+    constructor(password) {
+        this._password = password;
+    }
+    ;
+    get Password() {
+        return this._password;
+    }
+    set Password(password) {
+        if (password.length > 0) {
+            console.log(`Password set: ${password}`);
+            this._password = password;
+        }
+        else {
+            console.log("Enter valid password");
+        }
+    }
+}
+let l1 = new Login("admin@123");
+console.log("Current Password is: ", l1.Password);
+l1.Password = "newpass123";
+l1.Password = "updatedpass456";
+console.log("Current Password is: ", l1.Password);
+l1.Password = "";
+console.log("Current Password is: ", l1.Password);
