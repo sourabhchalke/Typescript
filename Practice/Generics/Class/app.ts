@@ -55,7 +55,6 @@ class Stack<S>{
             return true;
         }
     }
-
 }
 let stack1=new Stack<number>();
 stack1.push([44,55]);
@@ -65,3 +64,46 @@ console.log(stack1.isEmpty());
 stack1.push([99,88,77]);
 console.log(stack1.peek());
 console.log(stack1.isEmpty());
+
+// Generic Repository
+class Repository<R>{
+
+    private values:R[]=[];
+
+    add(item:R):void{
+        this.values.push(item);
+        console.log("Repo Added :",item);
+    }
+    getAll():R[]{
+        return [...this.values];
+    }
+    remove(predicate: (item: R) => boolean): void {
+        this.values = this.values.filter(item => !predicate(item));
+    }
+    find(predicate: (item: R) => boolean): R | undefined {
+        return this.values.find(predicate);
+    }
+
+}
+
+interface Repo<U>{
+    id:U,
+    name:string
+}
+
+let repo1=new Repository<Repo<number>>();
+repo1.add({"id":1,"name":"Repo1"});
+repo1.add({"id":2,"name":"Repo2"});
+repo1.add({"id":3,"name":"Repo3"});
+repo1.add({"id":4,"name":"Repo4"});
+repo1.add({"id":5,"name":"Repo5"});
+repo1.add({"id":6,"name":"Repo6"});
+console.log(repo1.getAll());
+
+repo1.remove(user => user.id === 2);
+console.log(repo1.getAll());
+
+const foundUser = repo1.find(user => user.name === "Repo5");
+console.log(foundUser);
+
+
