@@ -119,4 +119,35 @@ const userResponse = {
     page: 1
 };
 console.log(userResponse);
-// Example 2:Nested Generic Interface
+const result = {
+    status: 200,
+    success: true,
+    data: [{
+            id: 1,
+            item: "Formal-Pants",
+            price: 700,
+            available: true
+        }],
+};
+console.log("Nested Generic Interface, Response :", result);
+// const StringProcessor:Processor<string>={
+//     process(input:string):string{
+//         return input.toUpperCase();
+//     }
+// }
+// console.log(StringProcessor.process("dshdskjdhjs"));
+function StringProcessor() {
+    return {
+        process(input) {
+            return input.toUpperCase();
+        }
+    };
+}
+let upperCase1 = StringProcessor().process("lsdhjhdsgsdfh");
+console.log(upperCase1);
+const NumberProcessor = {
+    process(input) {
+        return input * 2;
+    }
+};
+console.log(NumberProcessor.process(2345));

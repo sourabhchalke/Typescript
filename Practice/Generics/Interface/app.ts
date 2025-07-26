@@ -212,3 +212,56 @@ console.log(userResponse);
 
 // Example 2:Nested Generic Interface
 
+interface OuterInterface<O>{
+    status:number,
+    success:boolean,
+    data:O[]
+}
+interface InnerInterface<I>{
+    id:I,
+    item:string,
+    price:I,
+    available:boolean
+}
+
+const result:OuterInterface<InnerInterface<number>>={
+    status:200,
+    success:true,
+    data:[{
+        id:1,
+        item:"Formal-Pants",
+        price:700,
+        available:true
+    }],
+}
+console.log("Nested Generic Interface, Response :",result);
+
+// Generic Function and Interface Combo:- Task: Create a generic interface Processor<T> with a method: process(input: T): T; Then: 1.Implement a StringProcessor that converts input to uppercase. 2.Implement a NumberProcessor that doubles the number.
+
+interface Processor<T>{
+    process(input:T):T;
+}
+
+// const StringProcessor:Processor<string>={
+//     process(input:string):string{
+//         return input.toUpperCase();
+//     }
+// }
+// console.log(StringProcessor.process("dshdskjdhjs"));
+
+function StringProcessor():Processor<string>{
+    return{
+        process(input:string):string{
+            return input.toUpperCase();
+        }
+    }
+}
+let upperCase1 = StringProcessor().process("lsdhjhdsgsdfh");
+console.log(upperCase1);
+
+const NumberProcessor:Processor<number>={
+    process(input:number):number{
+        return input*2;
+    }
+}
+console.log(NumberProcessor.process(2345));
