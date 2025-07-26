@@ -97,3 +97,53 @@ repo1.remove(user => user.id === 2);
 console.log(repo1.getAll());
 const foundUser = repo1.find(user => user.name === "Repo5");
 console.log(foundUser);
+// Generic Result Wrapper:- Create a generic class Result<T> with:
+// Property data?: T, error?: string
+// Static methods: 1.success(data: T): Result<T>, 2.failure(error: string): Result<T>
+class Result {
+    constructor(data, error) {
+        this.data = data;
+        this.error = error;
+    }
+    ;
+    static success(data) {
+        return new Result(data);
+    }
+    static failure(error) {
+        return new Result(undefined, error);
+    }
+}
+let success = Result.success("Data Fetched Successfully");
+console.log(success);
+let failure = Result.failure("Error:something went wrond");
+console.log(failure);
+// Generic Queue:- Build a Queue<T> with methods:
+// enqueue(item: T), dequeue(): T, front(): T, isEmpty(): boolean
+class Queue {
+    constructor() {
+        this.queueValue = [];
+    }
+    enqueue(item) {
+        this.queueValue.push(item);
+    }
+    dequeue() {
+        this.queueValue.shift();
+        return this.queueValue;
+    }
+    ;
+    front() {
+        return this.queueValue[0];
+    }
+    ;
+    isEmpty() {
+        return this.queueValue.length == 0;
+    }
+    ;
+}
+let q1 = new Queue();
+q1.enqueue("Apple");
+console.log(q1.front());
+q1.enqueue("Banana");
+console.log(q1.front());
+console.log(q1.dequeue());
+console.log(q1.isEmpty());
