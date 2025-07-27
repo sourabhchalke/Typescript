@@ -155,3 +155,34 @@ console.log(q1.front());
 console.log(q1.dequeue());
 console.log(q1.isEmpty());
 
+// Paginated Response:- Create a class PaginatedResult<T>:
+// Properties: data: T[], currentPage: number, totalPages: number
+// Method: getPage(page: number): T[]
+class PaginatedResult<T>{
+    public data:T[];
+    public currentPage:number=1;
+    public totalPages:number;
+    constructor(data:T[],public pageSize:number){
+        this.data=data;
+        this.totalPages=Math.ceil(data.length/pageSize);
+    }
+
+    getPage(page:number):T[]{
+             if(page<1 || page>this.totalPages){
+                console.log("Page number is to large")
+                throw new Error("Enter valid page number");
+             }
+        this.currentPage=page;
+        const start=(page-1)*this.pageSize;
+        const end =start+this.pageSize;
+        return this.data.slice(start,end);
+
+          
+    }
+}
+let items:string[]=["Hello","!","Welcome","To","Generic","Class"];
+
+const pr1=new PaginatedResult(items,2);
+console.log(pr1.getPage(3));
+console.log(pr1.getPage(2));
+console.log(pr1.getPage(1));
