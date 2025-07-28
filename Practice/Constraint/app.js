@@ -93,3 +93,19 @@ const customer1 = { id: 4, name: "Somesh" };
 const customer2 = { name: "Arun" };
 console.log(getId(customer1));
 // console.log(getId(customer2)); Error- It need property 'id'
+// 9.Create a generic function that filters a list of items based on a field (e.g., "status") — only allow field names that actually exist on the object.
+function Filter(items) {
+    items.forEach((item) => {
+        if (item.mStatus === true) {
+            console.log(item.name);
+        }
+    });
+}
+const marriageInfo = [
+    { name: "Viraj", mStatus: false },
+    { name: "Aryan", mStatus: true },
+    { name: "Vijay", mStatus: false },
+    { name: "Nilesh", mStatus: true },
+    { name: "Shubham", mStatus: true },
+];
+Filter(marriageInfo);

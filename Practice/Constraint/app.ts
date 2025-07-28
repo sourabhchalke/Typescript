@@ -108,17 +108,13 @@ console.log(getKeyValue(employee1,"id"));
 
 // 7.Build a function that accepts an array of items, and a callback that can only operate on items with a .name string property.
 function arrayItems<A extends {name:string}>(arr:A[],callback:(value:string)=>void):void{
-   
     arr.forEach((value)=>callback(value.name));
-
 }
-
 type Students={
     name:string,
     rollno:number,
     std:number
 }
-
 const studArr: Students[] = [
   { name: "Viraj", rollno: 3, std: 7 },
   { name: "Aryan", rollno: 5, std: 8 },
@@ -137,3 +133,26 @@ const customer1={id:4,name:"Somesh"};
 const customer2={name:"Arun"};
 console.log(getId(customer1));
 // console.log(getId(customer2)); Error- It need property 'id'
+
+// 9.Create a generic function that filters a list of items based on a field (e.g., "status") — only allow field names that actually exist on the object.
+function Filter<F extends {mStatus:boolean,name:string}>(items:F[]):void{
+     items.forEach((item)=>{
+        if(item.mStatus===true){
+            console.log(item.name);
+        }
+     });
+}
+type marriageType={
+    name:string,
+    mStatus:boolean,
+}
+const marriageInfo: marriageType[] = [
+  { name: "Viraj", mStatus:false },
+  { name: "Aryan",mStatus:true },
+  { name: "Vijay",mStatus:false },
+  { name: "Nilesh",mStatus:true },
+  { name: "Shubham",mStatus:true },
+];
+Filter(marriageInfo);
+
+
