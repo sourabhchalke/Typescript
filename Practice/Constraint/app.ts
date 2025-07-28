@@ -88,3 +88,52 @@ const empSalary1:empSalary={
 console.log(merge(empInfo1,empSalary1));
 // console.log(merge("dhdhdhd"));Error : It contain only object
 
+// 6.Create a function getKeyValue<T, K extends keyof T>(obj: T, key: K): T[K] that returns the value of the key.
+function getKeyValue<T,K extends keyof T>(obj:T,key:K):T[K]{
+    return obj[key];
+}
+type emp={
+    id:number,
+    name:string,
+    address:string,
+    salary:number
+}
+const employee1:emp={
+    id:1,
+    name:"Gaurav Pawar",
+    address:"Akurdi",
+    salary:25000
+}
+console.log(getKeyValue(employee1,"id"));
+
+// 7.Build a function that accepts an array of items, and a callback that can only operate on items with a .name string property.
+function arrayItems<A extends {name:string}>(arr:A[],callback:(value:string)=>void):void{
+   
+    arr.forEach((value)=>callback(value.name));
+
+}
+
+type Students={
+    name:string,
+    rollno:number,
+    std:number
+}
+
+const studArr: Students[] = [
+  { name: "Viraj", rollno: 3, std: 7 },
+  { name: "Aryan", rollno: 5, std: 8 },
+];
+arrayItems(studArr,(name)=>{console.log(name.toUpperCase())});
+
+// 8.Define an interface HasId with an id: number and create a function that only works on types that extend it.
+interface HasId{
+    id:number,
+}
+function getId<I extends HasId>(id:I):I{
+    let mul=id;
+    return mul;
+}
+const customer1={id:4,name:"Somesh"};
+const customer2={name:"Arun"};
+console.log(getId(customer1));
+// console.log(getId(customer2)); Error- It need property 'id'
