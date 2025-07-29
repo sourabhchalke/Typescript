@@ -55,3 +55,46 @@ function printId(id) {
 }
 printId(5);
 printId("skfhjhdf");
+function isAdmins(obj) {
+    return obj.role === "admin";
+}
+function isAdminOrUser(obj) {
+    if (isAdmins(obj)) {
+        console.log("This is Admin Dashboard and only accessible by Admin", obj);
+    }
+    else if (obj.role === "worker") {
+        console.log("This is Worker Dashboard", obj);
+    }
+    else {
+        console.log("This is Guest User");
+    }
+}
+const admin1 = {
+    role: "admin",
+    permissions: ["read", "write"]
+};
+const worker1 = {
+    role: "worker",
+    email: "worker123@gmail.com"
+};
+isAdminOrUser(admin1);
+function getArea(shape) {
+    switch (shape.kind) {
+        case "circle":
+            return Math.PI * shape.radius * shape.radius;
+        case "square":
+            return shape.side * shape.side;
+        case "rectangle":
+            return shape.len * shape.wid;
+        default:
+            throw new Error("Unknown shape");
+    }
+}
+//  Create objects
+const cir1 = { kind: "circle", radius: 5 };
+const sq1 = { kind: "square", side: 9 };
+const rect1 = { kind: "rectangle", len: 9, wid: 12 };
+//  Call and log results
+console.log("Circle Area:", getArea(cir1)); //output:Circle Area:78.5398
+console.log("Square Area:", getArea(sq1)); //output:Square Area :81
+console.log("Rectangle Area:", getArea(rect1)); //output Rectangle Area: 108

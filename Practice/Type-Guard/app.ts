@@ -54,3 +54,80 @@ function printId(id:number|string){
 }
 printId(5);
 printId("skfhjhdf");
+
+// 4.Custom Type Guard Function:- Define two interfaces:
+// interface Admin { role: 'admin'; permissions: string[]; }
+// interface User { role: 'user'; email: string; }
+// Write a type guard isAdmin(obj: Admin | User): obj is Admin and use it to handle Admin and User differently.
+interface Admin {
+    role:"admin",
+    permissions:string[]
+}
+interface Workers{
+    role:"worker",
+    email:string
+}
+function isAdmins(obj:Admin|Workers):obj is Admin{
+    return obj.role==="admin";
+}
+function isAdminOrUser(obj:Admin|Workers){
+    if(isAdmins(obj)){
+        console.log("This is Admin Dashboard and only accessible by Admin",obj);
+    }else if(obj.role==="worker"){
+        console.log("This is Worker Dashboard",obj);
+    }else{
+        console.log("This is Guest User"); 
+    }
+}
+const admin1={
+    role:"admin",
+    permissions:["read","write"]
+} as Admin;
+const worker1={
+    role:"worker",
+    email:"worker123@gmail.com"
+} as Workers;
+isAdminOrUser(admin1);
+
+// 5.Discriminated Union Type Guard
+// interface Circle { kind: 'circle'; radius: number; }
+// interface Square { kind: 'square'; side: number; }
+// interface Rectangle { kind: 'rectangle'; length: number; width: number; }
+// type Shape = Circle | Square | Rectangle;
+// Write a getArea(shape: Shape): number function using switch on shape.kind.
+interface Circles{
+    kind:"circle",
+    radius:number
+}
+interface Square{
+    kind:"square",
+    side:number
+}
+interface RectangleT{
+    kind:"rectangle",
+    len:number,
+    wid:number
+}
+type Shapes = Circles | Square | RectangleT;
+function getArea(shape: Shapes): number {
+  switch (shape.kind) {
+    case "circle":
+      return Math.PI * shape.radius * shape.radius;
+    case "square":
+      return shape.side * shape.side;
+    case "rectangle":
+      return shape.len * shape.wid;
+    default:
+      throw new Error("Unknown shape");
+  }
+}
+
+//  Create objects
+const cir1: Circles = { kind: "circle", radius: 5 };
+const sq1: Square = { kind: "square", side: 9 };
+const rect1: RectangleT = { kind: "rectangle", len: 9, wid: 12 };
+
+//  Call and log results
+console.log("Circle Area:", getArea(cir1));//output:Circle Area:78.5398
+console.log("Square Area:", getArea(sq1));//output:Square Area :81
+console.log("Rectangle Area:", getArea(rect1));//output Rectangle Area: 108
