@@ -131,3 +131,46 @@ const rect1: RectangleT = { kind: "rectangle", len: 9, wid: 12 };
 console.log("Circle Area:", getArea(cir1));//output:Circle Area:78.5398
 console.log("Square Area:", getArea(sq1));//output:Square Area :81
 console.log("Rectangle Area:", getArea(rect1));//output Rectangle Area: 108
+
+// 6.Nullable Type Guard
+// Write a function getLength(value: string | null | undefined) that returns the length of the string only if it's not null/undefined.
+
+function getLength(value:string|null|undefined):number{
+    if(typeof value ==="string"){
+        return value.length;
+       
+    }
+    // else if(typeof value==="undefined"){
+    //     console.log("Your value is Undefined");
+    // }else if(value===null){
+    //     console.log("Your value is Null");
+    // }
+    else{
+        console.log("Your value is :",value)
+        return 0;
+    }
+}
+console.log(getLength("Welcome to Nullable Type Guard"));;
+
+getLength(undefined);
+getLength(null);
+// getLength(345);Error
+
+// 7.Type Guard with Array of Mixed Types
+// const values = [123, "hello", true, "world"];
+// Write a function that filters only the strings from this array using a custom type guard.
+
+const mixedValues=[123,"hello",true,"world"];
+
+function isString(values:unknown) : values is string {
+    return typeof values==="string";
+}
+console.log(isString(mixedValues[0]));//outp:false
+console.log(isString(mixedValues[1]));//outp:true
+console.log(isString(mixedValues));//outp:false
+console.log(isString(mixedValues));//outp:true
+
+function filterString(arr:unknown[]):string[]{
+    return arr.filter(isString);
+}
+console.log(filterString(mixedValues));
