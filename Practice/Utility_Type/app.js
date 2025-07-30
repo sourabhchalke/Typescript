@@ -72,3 +72,14 @@ const rolePer = {
     }
 };
 console.log(rolePer);
+function NonClickFun(event) {
+    return event;
+}
+const hover = "hover";
+const drag = "drag";
+console.log(NonClickFun(hover));
+function details(values) {
+    return values;
+}
+console.log(details("name"));
+;

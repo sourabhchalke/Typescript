@@ -138,3 +138,28 @@ const rolePer:RolePermissions={
     }
 }
 console.log(rolePer);
+
+// 7.Exclude<T, U>:- Task: Get all event types except "click".
+// type EventType = "click" | "hover" | "drag";
+// type NonClickEvent = Exclude<EventType, "click">;
+type EventType="click"|"hover"|"drag";
+type NonClickEvent=Exclude<EventType,"click">;
+
+function NonClickFun(event:NonClickEvent):NonClickEvent{
+    return event;
+}
+const hover:NonClickEvent="hover";
+const drag:NonClickEvent="drag";
+console.log(NonClickFun(hover));
+
+// 8.Extract<T, U> :- Task: Get only shared values between two union types.
+type Teachers = "name"|"address"|"id"|"salary";
+type Stud="rollno"|"name"|"std"|"address";
+
+type Info=Extract<Teachers,Stud>;
+
+function details(values:Info):Info{
+    return values
+}
+console.log(details("name"));
+;
