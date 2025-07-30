@@ -54,3 +54,21 @@ const info = {
     age: 25
 };
 omitField(info);
+const rolePer = {
+    admin: {
+        read: true,
+        write: true,
+        delete: true,
+    },
+    editor: {
+        read: true,
+        write: true,
+        delete: false
+    },
+    viewer: {
+        read: true,
+        write: false,
+        delete: false
+    }
+};
+console.log(rolePer);

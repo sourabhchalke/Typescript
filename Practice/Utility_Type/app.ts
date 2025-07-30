@@ -111,3 +111,30 @@ const info:hideInfo={
     age:25
 }
 omitField(info);
+
+// 6.Record<K, T> :- Task: Create a mapping of roles to permissions.
+// type Role = "admin" | "editor" | "viewer";
+// type Permissions = {  read: boolean;  write: boolean;  delete: boolean};
+// type RolePermissions = Record<Role, Permissions>;
+type Roles= "admin" | "editor" | "viewer";
+type Permission = {  read: boolean;  write: boolean;  delete: boolean};
+type RolePermissions=Record<Roles,Permission>;
+
+const rolePer:RolePermissions={
+    admin:{
+        read:true,
+        write:true,
+        delete:true,
+    },
+    editor:{
+        read:true,
+        write:true,
+        delete:false
+    },
+    viewer:{
+        read:true,
+        write:false,
+        delete:false
+    }
+}
+console.log(rolePer);
