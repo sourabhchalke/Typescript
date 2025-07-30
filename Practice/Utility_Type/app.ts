@@ -60,3 +60,54 @@ function requiredField(field:CompleteUser){
     console.log(field);
 }
 requiredField(field1);
+
+// 3.Readonly<T> :
+type Config={
+    host:string,
+    port:number
+}
+const config1:Readonly<Config>={
+    host:"localhost",
+    port:3000,
+}
+// config1.port=5000; - This will show error because config1 is Readonly
+
+// 4.Pick<T, K> :- Task: Pick only name and email from User.
+// type UserContactInfo = Pick<User, "name" | "email">;
+// Practice: Use it for a contact card in function.
+type UserInfo={
+    id:number,
+    name:string,
+    email:string,
+    password:string,
+}
+type UserContactInfo=Pick<UserInfo,"name"|"email">;
+
+const userInfo:UserContactInfo={
+    name:"Rock",
+    email:"rock09@gmail.com"
+}
+function UserData(data:UserContactInfo){
+    console.log("User Info :",data);
+}
+UserData(userInfo);
+
+// 5.Omit<T, K> :- Task: Remove sensitive fields before exposing user data publicly.
+// type PublicUser = Omit<User, "email" | "age">;
+type PublicUser={
+    id:number,
+    name:string,
+    email:string,
+    age:number
+}
+type hideInfo=Omit<PublicUser,"email"|"id">;
+function omitField(publicInfo:hideInfo){
+    console.log(publicInfo);
+}
+const info:hideInfo={
+     // id:10,
+    name:"Yuvraj",
+    // email:"yuvraj17@gmail.com",
+    age:25
+}
+omitField(info);

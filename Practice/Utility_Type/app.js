@@ -32,3 +32,25 @@ function requiredField(field) {
     console.log(field);
 }
 requiredField(field1);
+const config1 = {
+    host: "localhost",
+    port: 3000,
+};
+const userInfo = {
+    name: "Rock",
+    email: "rock09@gmail.com"
+};
+function UserData(data) {
+    console.log("User Info :", data);
+}
+UserData(userInfo);
+function omitField(publicInfo) {
+    console.log(publicInfo);
+}
+const info = {
+    // id:10,
+    name: "Yuvraj",
+    // email:"yuvraj17@gmail.com",
+    age: 25
+};
+omitField(info);
