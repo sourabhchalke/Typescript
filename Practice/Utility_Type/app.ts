@@ -45,3 +45,18 @@ type Consumer = {
 // type DraftUser = {  name?: string;  email?: string;};
 // type CompleteUser = Required<DraftUser>;
 //  Practice: Try assigning an incomplete object and see the error.
+type DraftUser={
+    name?:string,
+    email?:string,//optional field
+}
+type CompleteUser=Required<DraftUser>;//but this make all field required
+
+const field1:CompleteUser={
+    name:"Viraj",
+    email:"viraj888@gmail.com"//If we remove this property this there come error of required property.
+}
+
+function requiredField(field:CompleteUser){
+    console.log(field);
+}
+requiredField(field1);

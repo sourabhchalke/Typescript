@@ -24,8 +24,11 @@ function returnMissing(obj) {
     return requiredField;
 }
 console.log(returnMissing(User1));
-// 2. Required<T>
-// Task: Ensure that all fields are required during database insert.
-// type DraftUser = {  name?: string;  email?: string;};
-// type CompleteUser = Required<DraftUser>;
-//  Practice: Try assigning an incomplete object and see the error.
+const field1 = {
+    name: "Viraj",
+    email: "viraj888@gmail.com" //If we remove this property this there come error of required property.
+};
+function requiredField(field) {
+    console.log(field);
+}
+requiredField(field1);
