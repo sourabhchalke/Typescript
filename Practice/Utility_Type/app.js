@@ -83,3 +83,22 @@ function details(values) {
 }
 console.log(details("name"));
 ;
+function notNull(value) {
+    return value;
+}
+console.log(notNull("NonNullable value"));
+console.log(notNull(345));
+// console.log(notNull()); //Error undefined is not acceptable
+// console.log(notNull(null));// Error null is not acceptable
+// 10. ReturnType<T> : - Task: Infer return type of a function.
+function getUser() {
+    return {
+        name: "Sourabh",
+        age: 25,
+    };
+}
+const userReturn = {
+    name: "Peter",
+    age: 29,
+};
+console.log(userReturn);
