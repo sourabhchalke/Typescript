@@ -102,3 +102,23 @@ const userReturn = {
     age: 29,
 };
 console.log(userReturn);
+// 11. Parameters<T> :- Task: Extract argument types of a function.
+function Parameter(a, b) {
+    console.log(a);
+    console.log(b);
+}
+Parameter("Hello", 6);
+// Tasks:Make a utility function that receives an object and keys, and returns a new object omitting those keys. Use generics and Omit.
+function utilityFun(obj, keys) {
+    const newObject = Object.assign({}, obj);
+    for (const key of keys) {
+        delete newObject[key];
+    }
+    return newObject;
+}
+const object1 = {
+    name: "Anderson",
+    city: "Londan",
+    age: 32
+};
+console.log(utilityFun(object1, ["age"]));

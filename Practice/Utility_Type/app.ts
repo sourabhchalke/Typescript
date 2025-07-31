@@ -190,3 +190,34 @@ const userReturn:UserReturnType={
     age:29,
 }
 console.log(userReturn);
+
+// 11. Parameters<T> :- Task: Extract argument types of a function.
+function  Parameter(a:string,b:number){
+    console.log(a);
+    console.log(b);
+}
+Parameter("Hello",6);
+type paraType=Parameters<typeof Parameter>;//type paraType=[string,number]
+
+// Tasks:Make a utility function that receives an object and keys, and returns a new object omitting those keys. Use generics and Omit.
+
+function utilityFun<O,K extends keyof O>(obj:O,keys:K[]):Omit<O,K>{
+
+    const newObject={...obj};
+    for(const key of keys ){
+        delete newObject[key];
+    }
+    return newObject;
+}
+
+type Objects={
+    name:string,
+    city:string,
+    age:number,
+}
+const object1:Objects={
+    name:"Anderson",
+    city:"Londan",
+    age:32
+}
+console.log(utilityFun(object1,["age"]));
